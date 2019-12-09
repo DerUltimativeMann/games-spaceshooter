@@ -11,7 +11,7 @@ CF = -c -Wall -pedantic -ansi
 LF = -lgdi32 -lopengl32
 
 # .o files
-OBJ = main.o
+OBJ = main.o oglhandler.o
 
 # binding...
 $(PROG): $(OBJ)
@@ -20,4 +20,7 @@ $(PROG): $(OBJ)
 
 # compiling...
 %.o: src/%.cpp
+	$(CC) $(CF) $<
+
+%.o: src/gfx/%.cpp
 	$(CC) $(CF) $<
